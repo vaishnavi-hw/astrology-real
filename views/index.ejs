@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Astrology</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar position-fixed ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./images/logo-removebg-preview.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-center">
+           Quick Astrologer
+          </a>
+        </div>
+      </nav>
+      <main>
+        <form action="/result" method="post">
+            <div class="selects">
+            <select required name="lagna">
+                <option value="" class="btn btn-secondary" type="button">
+                    लग्न 
+                </option>
+              <option value="मेष">मेष</option>
+              <option value="वृषभ">वृषभ</option>
+              <option value="मिथुन">मिथुन</option>
+              <option value="कर्क">कर्क</option>
+              <option value="सिंह">सिंह</option>
+              <option value="कन्या">कन्या</option>
+              <option value="तुला">तुला</option>
+              <option value="वृश्चिक">वृश्चिक</option>
+              <option value="धनु">धनु</option>
+              <option value="मकर">मकर</option>
+              <option value="कुंभ">कुंभ</option>
+              <option value="मीन">मीन</option>
+            </select>
+            <select name="bhav">
+                <option value="" class="btn btn-secondary" type="button">
+                    भाव
+                </option>
+              <option value="प्रथम">प्रथम</option>
+              <option value="द्वितीय">द्वितीय</option>
+              <option value="तृतीय">तृतीय</option>
+              <option value="चतुर्थ">चतुर्थ</option>
+              <option value="पंचम">पंचम</option>
+              <option value="षष्ठ">षष्ठ</option>
+              <option value="सप्तम">सप्तम</option>
+              <option value="अष्टम">अष्टम</option>
+              <option value="नवम">नवम</option>
+              <option value="दशम">दशम</option>
+              <option value="एकादश">एकादश</option>
+              <option value="द्वादश">द्वादश</option>
+            </select>
+            <select name="grah">
+                <option value="" class="btn btn-secondary" type="button">
+                    ग्रह
+                </option>
+              <option value="सूर्य">सूर्य</option>
+              <option value="चन्द्र">चंद्र</option>
+              <option value="मंगल">मंगल</option>
+              <option value="बुध">बुध</option>
+              <option value="गुरु">बृहस्पति</option>
+              <option value="शुक्र">शुक्र</option>
+              <option value="शनि">शनि</option>
+              <option value="राहू">राहू</option>
+              <option value="केतु">केतु</option>
+            </select>
+        </div>
+        
+            <input type="submit" class="btn btn-outline-warning" value="Submit">  
+        </form>
+        <div class="card-box" style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 50px; z-index: -10;">
+        <% if(properData.length>0){ %>
+          <%properData.forEach(item=>{%>
+            <div class="card rounded-md" style="width: 30rem; box-shadow: 5px 5px 5px lightgray; border: 2px solid orange;">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center; color: rgb(255, 180, 41); text-shadow: 1px 1px brown;"><%= item.lagna +" लग्न में " + item.bhav + " स्थान में " + item.grah %></h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                <p class="card-text" style="text-align:center; font-size: 15px;"><%=item.text%></p>
+              </div>
+            </div>
+          <%})%>
+        <%}else{%>
+        <%}%>
+      </div>
+           
+        
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

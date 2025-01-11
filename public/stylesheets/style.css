@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    background-color: orange;
+    width: 100vw;
+    box-shadow: 5px 5px 5px rgb(194, 191, 191);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    width: 100vw;
+}
+.card:hover{
+    position: relative;
+    top: 20px;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.selects{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    
+}
+select{
+    background: orange;
+    color: whitesmoke;
+    border: none;
+    border-radius: 20% 0%;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    box-shadow: 5px 5px 5px rgb(121, 117, 117);
+}
+select option{
+    padding: 10px;
+}
